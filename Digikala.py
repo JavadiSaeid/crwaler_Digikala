@@ -35,7 +35,6 @@ def Digikala(username='',  password=''):
             # storage.write(prettifys)
             # storage.close()
             # print("Save WebPage")
-
             getPages = soup.select('.js-pagination-item')
             Pages = len(getPages)
             W = 0
@@ -49,10 +48,10 @@ def Digikala(username='',  password=''):
                 else:
                     orders1 = session.get(f"https://www.digikala.com/profile/orders")
                 soup1 = bs(orders1.text,  'html.parser')
-                pricess = soup1.find_all('div',  'c-table-orders__cell c-table-orders__cell--price')
-                for price in pricess:
+                prices = soup1.find_all('div',  'c-table-orders__cell c-table-orders__cell--price')
+                for price in prices:
                     a = price.text
-                    if a not in ['۰ ', 'مبلغ کل', 'مبلغ قابل پرداخت'] :
+                    if a not in ['۰ ', 'مبلغ کل', 'مبلغ قابل پرداخت']:
                         b = a.replace(' تومان',  '')
                         c = b.replace('\n', '')
                         d = c.replace(',', '')
@@ -63,7 +62,8 @@ def Digikala(username='',  password=''):
             print("Your Username OR Password invalid!")
     input("\nEnter To Exit!")
 
-if __name__ == "__main__" :
+
+if __name__ == "__main__":
     Digikala()
 
 
