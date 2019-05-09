@@ -3,8 +3,8 @@ from bs4 import BeautifulSoup as bs
 
 url = "https://www.digikala.com/users/login/?_back=https%3A//www.digikala.com/"
 username = input("Enter Your Username:")
-# password = getpass.getpass(prompt='Enter Your Password:')
-password = input('Enter Your Password:')
+password = getpass.getpass(prompt='Enter Your Password:')
+# password = input('Enter Your Password:')
 pyload = {'login[email_phone]':username,'login[password]':password,'login[remember]':'checked'}
 session = requests.session()
 r = session.post(url,data=pyload)
